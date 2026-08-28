@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Aurelia — one-of-one fine jewellery, handcrafted in our atelier from responsibly sourced gold and certified stones." />
+  <meta name="theme-color" content="#0f0d0a" />
+  <title>AURELIA — Fine Jewellery Atelier</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script>document.documentElement.classList.remove("no-js");setTimeout(function(){document.body.classList.remove("is-loading");document.body.classList.add("is-loaded")},3800);</script>
+</head>
+<body class="is-loading">
+  <a class="skip-link" href="#collections">Skip to content</a>
+
+  <!-- Preloader -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader-brand">
+      <span class="preloader-letter" style="--i:0">A</span>
+      <span class="preloader-letter" style="--i:1">U</span>
+      <span class="preloader-letter" style="--i:2">R</span>
+      <span class="preloader-letter" style="--i:3">E</span>
+      <span class="preloader-letter" style="--i:4">L</span>
+      <span class="preloader-letter" style="--i:5">I</span>
+      <span class="preloader-letter" style="--i:6">A</span>
+    </div>
+    <div class="preloader-line"><span id="preloaderBar"></span></div>
+    <p class="preloader-count" id="preloaderCount">00</p>
+  </div>
+
+  <!-- Film grain -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- Custom cursor -->
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"><span class="cursor-label"></span></div>
+
+  <!-- Scroll progress -->
+  <div class="scroll-progress" aria-hidden="true"><span id="scrollProgress"></span></div>
+
+  <!-- Header -->
+  <header class="site-header" id="siteHeader">
+    <a class="wordmark" href="#top">AURELIA</a>
+    <nav class="desktop-nav" aria-label="Primary">
+      <a href="#collections">Collection</a>
+      <a href="#film">Film</a>
+      <a href="#atelier">Atelier</a>
+      <a href="#archive">Archive</a>
+      <a href="#journal">Journal</a>
+    </nav>
+    <div class="header-right">
+      <a class="header-cta" href="#contact" data-magnetic>Book a viewing</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <!-- Mobile menu -->
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
+    <a href="#collections" style="--i:0"><em>01</em>Collection</a>
+    <a href="#film" style="--i:1"><em>02</em>Film</a>
+    <a href="#atelier" style="--i:2"><em>03</em>Atelier</a>
+    <a href="#archive" style="--i:3"><em>04</em>Archive</a>
+    <a href="#journal" style="--i:4"><em>05</em>Journal</a>
+    <a href="#contact" style="--i:5"><em>06</em>Contact</a>
+    <p class="mobile-menu-note">Fine jewellery · London &amp; Jaipur · Est. 1998</p>
+  </nav>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-media" data-parallax="0.1" aria-hidden="true">
+        <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=1600&q=80">
+          <source src="https://assets.mixkit.co/videos/36197/36197-720.mp4" type="video/mp4" />
+        </video>
+        <div class="hero-veil"></div>
+      </div>
+      <div class="hero-inner container">
+        <p class="eyebrow" data-hero style="--i:1">Maison de haute joaillerie · Est. 1998</p>
+        <h1 class="hero-title" data-hero style="--i:2">The art of<br /><em>quiet radiance.</em></h1>
+        <p class="hero-sub" data-hero style="--i:3">One-of-one fine jewellery — drawn, cast and finished by hand, made to outlive every trend.</p>
+        <div class="hero-actions" data-hero style="--i:4">
+          <a class="btn btn-gold" href="#collections" data-magnetic><span>Explore the collection</span></a>
+          <a class="btn btn-ghost" href="#contact" data-magnetic><span>Book a private viewing</span></a>
+        </div>
+      </div>
+      <div class="hero-foot container">
+        <div class="scroll-cue" data-hero style="--i:5"><span class="scroll-cue-line"></span>Scroll</div>
+        <p class="hero-foot-note" data-hero style="--i:6">Nº 01 — The Radiance Edit, 2026</p>
+        <p class="hero-foot-note" data-hero style="--i:7">18k gold · Certified stones</p>
+      </div>
+    </section>
+<!-- Gold marquee -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <ul>
+          <li>18k recycled gold</li><li class="m-sep">✦</li>
+          <li>Certified diamonds</li><li class="m-sep">✦</li>
+          <li>Handcrafted in-house</li><li class="m-sep">✦</li>
+          <li>Responsibly sourced</li><li class="m-sep">✦</li>
+          <li>Lifetime care</li><li class="m-sep">✦</li>
+        </ul>
+        <ul aria-hidden="true">
+          <li>18k recycled gold</li><li class="m-sep">✦</li>
+          <li>Certified diamonds</li><li class="m-sep">✦</li>
+          <li>Handcrafted in-house</li><li class="m-sep">✦</li>
+          <li>Responsibly sourced</li><li class="m-sep">✦</li>
+          <li>Lifetime care</li><li class="m-sep">✦</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Manifesto -->
+    <section class="manifesto" id="studio">
+      <div class="container manifesto-grid">
+        <div class="manifesto-copy">
+          <p class="eyebrow" data-reveal>The maison</p>
+          <h2 class="manifesto-statement" data-split>Jewellery should not decorate a moment — it should <em>become</em> the moment. Drawn, cast and finished by hand. Slowly. To outlive every trend.</h2>
+          <a class="text-link" href="#atelier" data-reveal style="--d:.15s">Inside the atelier <span>→</span></a>
+        </div>
+        <div class="manifesto-media">
+          <div class="media" data-reveal="clip">
+            <img class="px-img" data-parallax="0.06" src="https://images.unsplash.com/photo-1608042314453-ae338d80c427?auto=format&fit=crop&w=1100&q=85" alt="Fine gold necklace worn against skin" loading="lazy" />
+          </div>
+          <div class="badge" data-reveal style="--d:.35s" aria-hidden="true">
+            <svg viewBox="0 0 100 100">
+              <defs><path id="badgeCircle" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0" /></defs>
+              <text><textPath href="#badgeCircle">AURELIA ATELIER · EST. 1998 · LONDON ·&#160;</textPath></text>
+            </svg>
+            <span class="badge-core">✦</span>
+          </div>
+        </div>
+      </div>
+      <div class="container stats" data-reveal>
+        <div class="stat"><b><span data-count="27">0</span></b><span class="stat-label">Years of making</span></div>
+        <div class="stat"><b><span data-count="40">0</span></b><span class="stat-label">Master artisans</span></div>
+        <div class="stat"><b><span data-count="1200" data-suffix="+">0</span></b><span class="stat-label">Commissions delivered</span></div>
+        <div class="stat"><b><span data-count="100" data-suffix="%">0</span></b><span class="stat-label">Recycled gold</span></div>
+      </div>
+    </section>
+    <!-- Film -->
+    <section class="film" id="film">
+      <div class="film-media" data-parallax="0.08">
+        <video class="film-video is-active" muted loop playsinline preload="metadata" poster="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?auto=format&fit=crop&w=1600&q=80">
+          <source src="https://assets.mixkit.co/videos/2865/2865-1080.mp4" type="video/mp4" />
+        </video>
+        <video class="film-video" muted loop playsinline preload="none" poster="https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?auto=format&fit=crop&w=1600&q=80">
+          <source src="https://assets.mixkit.co/videos/5210/5210-1080.mp4" type="video/mp4" />
+        </video>
+        <div class="film-veil"></div>
+      </div>
+      <div class="film-inner">
+        <p class="eyebrow" data-reveal>The film · Chapter IV</p>
+        <h2 class="film-quote" data-split>Crafted in shadow, <em>worn in light.</em></h2>
+        <p class="film-sub" data-reveal style="--d:.2s">Shot on location between the London bench and the Jaipur workshop — no retouching, no shortcuts.</p>
+      </div>
+      <div class="film-controls">
+        <button class="film-chip is-active" data-chapter="0">01 — Stones</button>
+        <button class="film-chip" data-chapter="1">02 — Vows</button>
+        <button class="film-play" id="filmPlay" aria-label="Pause film">❚❚</button>
+      </div>
+    </section>
+
+    <!-- Atelier -->
+    <section class="atelier" id="atelier">
+      <div class="container atelier-grid">
+        <div class="atelier-steps">
+          <p class="eyebrow" data-reveal>Inside the atelier</p>
+          <h2 data-reveal style="--d:.08s">Four acts<br />of patience.</h2>
+          <ol class="a-list">
+            <li class="a-step is-active" data-step>
+              <span class="a-index">01</span>
+              <div><h3>The sketch</h3><p>Every commission begins as a pencil line — proportion first, ornament last, nothing that cannot be defended.</p></div>
+            </li>
+            <li class="a-step" data-step>
+              <span class="a-index">02</span>
+              <div><h3>The cast</h3><p>Recycled 18k gold is poured, rolled and drawn by hand until the metal finds its intended weight.</p></div>
+            </li>
+            <li class="a-step" data-step>
+              <span class="a-index">03</span>
+              <div><h3>The setting</h3><p>Stones are seated under 10× magnification — each claw cut, lifted and closed around its own stone.</p></div>
+            </li>
+            <li class="a-step" data-step>
+              <span class="a-index">04</span>
+              <div><h3>The polish</h3><p>Days of hand-finishing give the surface its depth. If it doesn't glow in candlelight, it starts again.</p></div>
+            </li>
+          </ol>
+          <div class="atelier-cta" data-reveal>
+            <a class="btn btn-dark" href="#contact" data-magnetic><span>Commission a piece</span></a>
+          </div>
+        </div>
+        <div class="atelier-stage-wrap">
+          <div class="atelier-stage">
+            <figure class="a-pane is-active" data-pane>
+              <img src="https://images.unsplash.com/photo-1584302179602-e4c3d3fd629d?auto=format&fit=crop&w=1200&q=85" alt="Design sketches and tools on the bench" loading="lazy" />
+              <figcaption>Act 01 — The sketch</figcaption>
+            </figure>
+            <figure class="a-pane" data-pane>
+              <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=1200&q=85" alt="Gold taking shape on the workbench" loading="lazy" />
+              <figcaption>Act 02 — The cast</figcaption>
+            </figure>
+            <figure class="a-pane" data-pane>
+              <img src="https://images.unsplash.com/photo-1633934542430-0905ccb5f050?auto=format&fit=crop&w=1200&q=85" alt="A stone being set by hand" loading="lazy" />
+              <figcaption>Act 03 — The setting</figcaption>
+            </figure>
+            <figure class="a-pane" data-pane>
+              <img src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=1200&q=85" alt="Polished gold pieces catching the light" loading="lazy" />
+              <figcaption>Act 04 — The polish</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+      <div class="craft-strip" data-reveal="clip">
+        <video autoplay muted loop playsinline preload="metadata" poster="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&w=1600&q=80" aria-hidden="true">
+          <source src="https://assets.mixkit.co/videos/49163/49163-720.mp4" type="video/mp4" />
+        </video>
+        <div class="craft-caption">
+          <p class="eyebrow">From the bench</p>
+          <h3>One atelier. Forty hands. Zero shortcuts.</h3>
+        </div>
+      </div>
+    </section>
+    <!-- Archive -->
+    <section class="archive" id="archive">
+      <div class="container archive-head">
+        <div>
+          <p class="eyebrow" data-reveal>The archive</p>
+          <h2 data-reveal style="--d:.08s">Objects with a<br />point of view.</h2>
+        </div>
+        <p class="archive-hint" data-reveal style="--d:.16s"><span class="drag-pill">Drag</span> or scroll sideways</p>
+      </div>
+      <div class="archive-track" id="archiveTrack" data-cursor="Drag">
+        <article class="a-card" data-lightbox data-cursor="View" data-cap="Mira Hoops — 18k recycled gold">
+          <div class="a-media"><span class="a-num">01</span><img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=900&q=85" alt="Mira Hoops in 18k recycled gold" loading="lazy" /></div>
+          <div class="a-meta"><div><h3>Mira Hoops</h3><p>18k gold · In stock</p></div><span class="a-price">€1,450</span></div>
+        </article>
+        <article class="a-card" data-lightbox data-cursor="View" data-cap="Arc Signet — 18k gold commission">
+          <div class="a-media"><span class="a-num">02</span><img src="https://images.unsplash.com/photo-1601821765780-754fa98637c1?auto=format&fit=crop&w=900&q=85" alt="Arc Signet ring in polished gold" loading="lazy" /></div>
+          <div class="a-meta"><div><h3>Arc Signet</h3><p>18k gold · Commission</p></div><span class="a-price">€980</span></div>
+        </article>
+        <article class="a-card" data-lightbox data-cursor="View" data-cap="Céleste Studs — rose-cut diamonds">
+          <div class="a-media"><span class="a-num">03</span><img src="https://images.unsplash.com/photo-1603974372039-adc49044b6bd?auto=format&fit=crop&w=900&q=85" alt="Céleste diamond studs against black" loading="lazy" /></div>
+          <div class="a-meta"><div><h3>Céleste Studs</h3><p>Diamond · In stock</p></div><span class="a-price">€1,150</span></div>
+        </article>
+        <article class="a-card" data-lightbox data-cursor="View" data-cap="Solène Pendant — diamond, one of one">
+          <div class="a-media"><span class="a-num">04</span><img src="https://images.unsplash.com/photo-1620656798579-1984d9e87df7?auto=format&fit=crop&w=900&q=85" alt="Solène diamond pendant on a fine chain" loading="lazy" /></div>
+          <div class="a-meta"><div><h3>Solène Pendant</h3><p>Diamond · One of one</p></div><span class="a-price">€2,900</span></div>
+        </article>
+        <article class="a-card" data-lightbox data-cursor="View" data-cap="Étoile Ring — diamond pavé">
+          <div class="a-media"><span class="a-num">05</span><img src="https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?auto=format&fit=crop&w=900&q=85" alt="Étoile pavé ring presented in a box" loading="lazy" /></div>
+          <div class="a-meta"><div><h3>Étoile Ring</h3><p>Diamond pavé · In stock</p></div><span class="a-price">€3,400</span></div>
+        </article>
+        <article class="a-card" data-lightbox data-cursor="View" data-cap="Vesper Bangle — 18k gold">
+          <div class="a-media"><span class="a-num">06</span><img src="https://images.unsplash.com/photo-1611085583191-a3b181a88401?auto=format&fit=crop&w=900&q=85" alt="Vesper gold bangle on the wrist" loading="lazy" /></div>
+          <div class="a-meta"><div><h3>Vesper Bangle</h3><p>18k gold · In stock</p></div><span class="a-price">€1,750</span></div>
+        </article>
+        <article class="a-card" data-lightbox data-cursor="View" data-cap="Noor Chain — 18k gold">
+          <div class="a-media"><span class="a-num">07</span><img src="https://images.unsplash.com/photo-1602752250015-52934bc45613?auto=format&fit=crop&w=900&q=85" alt="Noor gold chain necklace" loading="lazy" /></div>
+          <div class="a-meta"><div><h3>Noor Chain</h3><p>18k gold · In stock</p></div><span class="a-price">€1,250</span></div>
+        </article>
+      </div>
+      <div class="container archive-progress"><span id="archiveBar"></span></div>
+    </section>
+<!-- Testimonials -->
+    <section class="testimonials" id="voices">
+      <div class="container">
+        <p class="eyebrow" data-reveal>Client voices</p>
+        <div class="t-stage" id="tStage">
+          <figure class="t-slide is-active">
+            <blockquote>“The ring they made for us feels like it has always existed — simply waiting to be found.”</blockquote>
+            <figcaption>Amara S. — Commission, 2025</figcaption>
+          </figure>
+          <figure class="t-slide">
+            <blockquote>“Quiet, exact, and impossibly comfortable. Two years on, I have not once taken it off.”</blockquote>
+            <figcaption>Elena R. — Private client</figcaption>
+          </figure>
+          <figure class="t-slide">
+            <blockquote>“Aurelia melted three generations of gold into one necklace. There wasn't a dry eye in the room.”</blockquote>
+            <figcaption>Devika &amp; Arjun — Wedding collection</figcaption>
+          </figure>
+        </div>
+        <div class="t-dots" id="tDots">
+          <button class="is-active" aria-label="Show voice 1"></button>
+          <button aria-label="Show voice 2"></button>
+          <button aria-label="Show voice 3"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Journal -->
+    <section class="journal" id="journal">
+      <div class="container">
+        <div class="journal-head">
+          <div>
+            <p class="eyebrow" data-reveal>Notes from the bench</p>
+            <h2 data-reveal style="--d:.08s">The journal.</h2>
+          </div>
+          <a class="text-link" href="#contact" data-reveal style="--d:.14s">Request the private list <span>→</span></a>
+        </div>
+        <div class="j-grid">
+          <article class="j-card" data-lightbox data-cursor="Read" data-cap="Anatomy of a solitaire — The Journal" data-reveal>
+            <div class="j-media"><img src="https://images.unsplash.com/photo-1605101100278-5d1deb2b6498?auto=format&fit=crop&w=1000&q=85" alt="Close study of a solitaire diamond ring" loading="lazy" /></div>
+            <span class="j-date">March 2026 · Craft</span>
+            <h3>Anatomy of a solitaire</h3>
+          </article>
+          <article class="j-card" data-lightbox data-cursor="Read" data-cap="Wearing gold every day — The Journal" data-reveal style="--d:.1s">
+            <div class="j-media"><img src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=1000&q=85" alt="Gold jewellery worn in daylight" loading="lazy" /></div>
+            <span class="j-date">February 2026 · Style</span>
+            <h3>Wearing gold every day</h3>
+          </article>
+          <article class="j-card" data-lightbox data-cursor="Read" data-cap="How we source our stones — The Journal" data-reveal style="--d:.2s">
+            <div class="j-media"><img src="https://images.unsplash.com/photo-1600003263720-95b45a4035d5?auto=format&fit=crop&w=1000&q=85" alt="Loose gemstones before cutting" loading="lazy" /></div>
+            <span class="j-date">January 2026 · Sourcing</span>
+            <h3>How we source our stones</h3>
+          </article>
+        </div>
+      </div>
+    </section>
+<!-- Contact -->
+    <section class="contact" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-copy">
+          <p class="eyebrow" data-reveal>Private enquiries</p>
+          <h2 data-reveal style="--d:.08s">Let's make something<br /><em>lasting.</em></h2>
+          <p class="contact-sub" data-reveal style="--d:.14s">Commissions, appointments and press — tell us what you are dreaming of, and we will write back within two working days.</p>
+          <div class="c-rows" data-reveal style="--d:.2s">
+            <div class="c-row"><span>Atelier</span><p>12 Greville Road, London</p></div>
+            <div class="c-row"><span>Write</span><a href="mailto:studio@aurelia.example">studio@aurelia.example</a></div>
+            <div class="c-row"><span>Call</span><a href="tel:+442000000000">+44 20 0000 0000</a></div>
+            <div class="c-row"><span>Hours</span><p>Tue – Sat, by appointment</p></div>
+          </div>
+        </div>
+        <form class="contact-form" id="contactForm" data-reveal style="--d:.15s">
+          <div class="form-fields">
+            <div class="field">
+              <label for="cfName">Your name</label>
+              <input id="cfName" name="name" type="text" placeholder="Amara Shah" autocomplete="name" required />
+            </div>
+            <div class="field">
+              <label for="cfEmail">Email</label>
+              <input id="cfEmail" name="email" type="email" placeholder="you@example.com" autocomplete="email" required />
+            </div>
+            <div class="field">
+              <label for="cfMsg">What are we making?</label>
+              <textarea id="cfMsg" name="message" rows="4" placeholder="A ring for a 30th birthday, in recycled gold…"></textarea>
+            </div>
+            <button class="btn btn-gold" type="submit" data-magnetic><span>Send enquiry</span></button>
+          </div>
+          <p class="form-done" id="formDone" tabindex="-1">Received — thank you. We will write back within two working days.</p>
+        </form>
+      </div>
+    </section>
+</main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-top">
+      <div class="f-brand">
+        <a class="wordmark f-mark" href="#top">AURELIA</a>
+        <p>One-of-one fine jewellery, handmade in London since 1998. Recycled gold, certified stones, zero shortcuts.</p>
+      </div>
+      <div class="f-col">
+        <h4>Explore</h4>
+        <a href="#collections">Collection</a>
+        <a href="#film">Film</a>
+        <a href="#atelier">Atelier</a>
+        <a href="#archive">Archive</a>
+      </div>
+      <div class="f-col">
+        <h4>Studio</h4>
+        <a href="#journal">Journal</a>
+        <a href="#studio">The maison</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="f-col">
+        <h4>Elsewhere</h4>
+        <a href="#" rel="noopener">Instagram ↗</a>
+        <a href="#" rel="noopener">Pinterest ↗</a>
+        <a href="#" rel="noopener">YouTube ↗</a>
+      </div>
+    </div>
+    <a class="footer-word" href="#top" aria-label="Aurelia — back to top">AURELIA</a>
+    <div class="container footer-bottom">
+      <p>© <span id="year">2026</span> Aurelia Fine Jewellery</p>
+      <p>Crafted with patience in London &amp; Jaipur</p>
+      <p>Imagery · Unsplash — Film · Mixkit</p>
+    </div>
+  </footer>
+
+  <button class="to-top" id="toTop" aria-label="Back to top">↑</button>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Image viewer">
+    <button class="lightbox-close" aria-label="Close">×</button>
+    <figure>
+      <img id="lightboxImg" alt="" />
+      <figcaption id="lightboxCap"></figcaption>
+    </figure>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
