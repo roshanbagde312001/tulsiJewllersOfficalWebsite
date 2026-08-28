@@ -225,6 +225,41 @@
       }
     });
   }));
+  /* ---------------- Ornament gallery pages: filters ---------------- */
+  $$("[data-gallery]").forEach((wrap) => {
+    const gCards = $$(".g-card", wrap);
+    const gBtns = $$(".f-btn", wrap);
+    gBtns.forEach((btn) => btn.addEventListener("click", () => {
+      gBtns.forEach((b) => b.classList.toggle("is-active", b === btn));
+      const f = btn.dataset.filter;
+      gCards.forEach((card) => {
+        const show = f === "all" || card.dataset.cat === f;
+        card.classList.remove("pop");
+        if (show) {
+          card.classList.remove("is-hidden");
+          void card.offsetWidth; // restart pop animation
+          card.classList.add("pop");
+        } else {
+          card.classList.add("is-hidden");
+          const v = card.querySelector("video");
+          if (v) v.pause();
+        }
+      });
+    }));
+  });
+
+  /* ---------------- Gallery film cards: play in view, pause away ---------------- */
+  const gVideos = $$(".g-card[data-video] video");
+  if ("IntersectionObserver" in window && gVideos.length) {
+    const gVideoIO = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        if (en.isIntersecting) en.target.play().catch(() => {});
+        else en.target.pause();
+      });
+    }, { threshold: 0.3 });
+    gVideos.forEach((v) => gVideoIO.observe(v));
+  }
+
   /* ---------------- Film: chapters + play state ---------------- */
   const filmVideos = $$(".film-video");
   const filmChips = $$(".film-chip");
@@ -335,38 +370,95 @@
     });
   }
 
-  /* ---------------- Lightbox ---------------- */
+  /* ---------------- Lightbox — catalogue + films, prev/next ---------------- */
   const lightbox = $("#lightbox");
   const lbImg = $("#lightboxImg");
+  const lbVideo = $("#lightboxVideo");
   const lbCap = $("#lightboxCap");
-  function openLightbox(src, cap) {
-    if (!lightbox) return;
-    lbImg.src = src.replace(/w=\d+/, "w=1800");
-    lbImg.alt = cap || "Aurelia fine jewellery";
-    if (lbCap) lbCap.textContent = cap || "";
+  const lbCount = $("#lightboxCount");
+  const lbPrev = $(".lightbox-prev");
+  const lbNext = $(".lightbox-next");
+  let lbItems = [];
+  let lbIndex = 0;
+
+  function collectLightboxItems() {
+    lbItems = $$("[data-lightbox], [data-video], [data-open-video]").map((el) => {
+      if (el.dataset.video || el.dataset.openVideo) {
+        const src = el.dataset.video || el.dataset.openVideo;
+        const vid = el.querySelector("video");
+        return { kind: "video", src, poster: el.dataset.poster || (vid && vid.getAttribute("poster")) || "", cap: el.dataset.cap || "Aurelia atelier film" };
+      }
+      const img = el.querySelector("img");
+      if (!img) return null;
+      const cap = el.dataset.cap || (el.querySelector("h3") ? el.querySelector("h3").textContent : "");
+      return { kind: "image", src: img.currentSrc || img.src, cap };
+    }).filter(Boolean);
+  }
+
+  function setLightboxMedia(item) {
+    if (!lightbox || !item) return;
+    if (lbCount) lbCount.textContent = lbItems.length ? `${String(lbIndex + 1).padStart(2, "0")} / ${String(lbItems.length).padStart(2, "0")}` : "";
+    if (item.kind === "video") {
+      lbImg.style.display = "none";
+      lbVideo.style.display = "block";
+      lbVideo.poster = item.poster || "";
+      if (lbVideo.src !== item.src) lbVideo.src = item.src;
+      lbVideo.load();
+      lbVideo.play().catch(() => {});
+      if (lbCap) lbCap.textContent = item.cap;
+    } else {
+      if (lbVideo) { lbVideo.pause(); lbVideo.removeAttribute("src"); }
+      lbVideo.style.display = "none";
+      lbImg.style.display = "";
+      lbImg.src = item.src.replace(/w=\d+/, "w=1800");
+      lbImg.alt = item.cap || "Aurelia fine jewellery";
+      if (lbCap) lbCap.textContent = item.cap || "";
+    }
+  }
+
+  function openLightboxAt(i) {
+    if (!lbItems.length) return;
+    lbIndex = (i + lbItems.length) % lbItems.length;
+    setLightboxMedia(lbItems[lbIndex]);
     lightbox.classList.add("is-open");
     lightbox.setAttribute("aria-hidden", "false");
     document.body.classList.add("no-scroll");
   }
+
   function closeLightbox() {
     if (!lightbox) return;
+    if (lbVideo) { lbVideo.pause(); lbVideo.removeAttribute("src"); }
     lightbox.classList.remove("is-open");
     lightbox.setAttribute("aria-hidden", "true");
     document.body.classList.remove("no-scroll");
   }
-  $$("[data-lightbox]").forEach((item) => {
-    item.addEventListener("click", () => {
-      const img = item.querySelector("img");
-      if (!img) return;
-      const cap = item.dataset.cap || (item.querySelector("h3") ? item.querySelector("h3").textContent : "");
-      openLightbox(img.currentSrc || img.src, cap);
+
+  collectLightboxItems();
+  $$("[data-lightbox], [data-video]").forEach((el) => {
+    el.addEventListener("click", () => {
+      const key = el.dataset.video || (el.querySelector("img") ? (el.querySelector("img").currentSrc || el.querySelector("img").src) : "");
+      const i = lbItems.findIndex((it) => it.src === key);
+      openLightboxAt(i >= 0 ? i : 0);
     });
   });
+  $$("[data-open-video]").forEach((el) => {
+    el.addEventListener("click", (e) => {
+      e.preventDefault();
+      const i = lbItems.findIndex((it) => it.src === el.dataset.openVideo);
+      openLightboxAt(i >= 0 ? i : lbIndex);
+    });
+  });
+  if (lbNext) lbNext.addEventListener("click", () => openLightboxAt(lbIndex + 1));
+  if (lbPrev) lbPrev.addEventListener("click", () => openLightboxAt(lbIndex - 1));
   if (lightbox) lightbox.addEventListener("click", (e) => {
     if (e.target === lightbox || e.target.closest(".lightbox-close")) closeLightbox();
   });
   addEventListener("keydown", (e) => {
     if (e.key === "Escape") { closeLightbox(); setMenu(false); }
+    if (lightbox && lightbox.classList.contains("is-open")) {
+      if (e.key === "ArrowRight") openLightboxAt(lbIndex + 1);
+      if (e.key === "ArrowLeft") openLightboxAt(lbIndex - 1);
+    }
   });
 
   /* ---------------- Contact form ---------------- */
