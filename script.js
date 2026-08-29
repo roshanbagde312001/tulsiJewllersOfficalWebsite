@@ -1,5 +1,5 @@
 /* ============================================================
-   AURELIA — interactions · vanilla JS, no dependencies
+   TULSI JEWELLERS — interactions · vanilla JS, no dependencies
    ============================================================ */
 (() => {
   "use strict";
@@ -386,7 +386,7 @@
       if (el.dataset.video || el.dataset.openVideo) {
         const src = el.dataset.video || el.dataset.openVideo;
         const vid = el.querySelector("video");
-        return { kind: "video", src, poster: el.dataset.poster || (vid && vid.getAttribute("poster")) || "", cap: el.dataset.cap || "Aurelia atelier film" };
+        return { kind: "video", src, poster: el.dataset.poster || (vid && vid.getAttribute("poster")) || "", cap: el.dataset.cap || "Tulsi Jewellers atelier film" };
       }
       const img = el.querySelector("img");
       if (!img) return null;
@@ -411,7 +411,7 @@
       lbVideo.style.display = "none";
       lbImg.style.display = "";
       lbImg.src = item.src.replace(/w=\d+/, "w=1800");
-      lbImg.alt = item.cap || "Aurelia fine jewellery";
+      lbImg.alt = item.cap || "Tulsi Jewellers";
       if (lbCap) lbCap.textContent = item.cap || "";
     }
   }
